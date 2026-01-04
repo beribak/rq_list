@@ -1,0 +1,78 @@
+// Rounded buttons globally
+.btn {
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-sm {
+  border-radius: 15px;
+}
+
+.btn-lg {
+  border-radius: 25px;
+}
+
+.btn-primary {
+  background-color: $dark-blue;
+  border-color: $dark-blue;
+  color: white;
+  
+  &:hover {
+    background-color: darken($dark-blue, 10%);
+    border-color: darken($dark-blue, 10%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
+.btn-danger, .btn-outline-danger {
+  border-color: $red;
+  
+  &:hover {
+    background-color: $red;
+    border-color: $red;
+  }
+}
+
+.btn-info {
+  background-color: $teal;
+  border-color: $teal;
+  color: white;
+  
+  &:hover {
+    background-color: darken($teal, 10%);
+    border-color: darken($teal, 10%);
+    color: white;
+  }
+}
+
+.btn-outline-secondary {
+  border-color: $dark-blue;
+  color: $dark-blue;
+  
+  &:hover {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+    color: white;
+  }
+}
+
+.btn-outline-primary {
+  border-color: $teal;
+  color: $teal;
+  
+  &:hover {
+    background-color: $teal;
+    border-color: $teal;
+    color: white;
+  }
+}
+
+.btn-success {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}

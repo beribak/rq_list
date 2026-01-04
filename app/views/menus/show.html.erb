@@ -1,0 +1,92 @@
+<div class="container mt-4">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+    <div>
+      <h1><%= @menu.name %></h1>
+      <p class="text-muted"><%= @menu.description %></p>
+    </div>
+    <div class="d-flex gap-2 flex-nowrap">
+      <%= link_to qr_code_menu_path(@menu), class: "btn-icon btn-icon-info" do %>
+        <i class="bi bi-qr-code"></i>
+        <span>QR Code</span>
+      <% end %>
+      <%= link_to edit_menu_path(@menu), class: "btn-icon" do %>
+        <i class="bi bi-pencil"></i>
+      <% end %>
+      <%= link_to menus_path, class: "btn-icon btn-icon-secondary" do %>
+        <i class="bi bi-arrow-left"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= link_to new_menu_section_path(@menu), class: "btn-icon btn-icon-add" do %>
+      <i class="bi bi-plus-lg"></i>
+      <span>Add Section</span>
+    <% end %>
+  </div>
+
+  <% if @sections.any? %>
+    <% @sections.each do |section| %>
+      <div class="card mb-4">
+        <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+          <h3 class="mb-0"><%= section.name %></h3>
+          <div class="d-flex gap-2 flex-nowrap">
+            <%= link_to edit_menu_section_path(@menu, section), class: "btn-icon btn-icon-light" do %>
+              <i class="bi bi-pencil"></i>
+            <% end %>
+            <%= button_to menu_section_path(@menu, section), method: :delete,
+                data: { turbo_confirm: "Are you sure?" }, class: "btn-icon btn-icon-danger-light" do %>
+              <i class="bi bi-trash"></i>
+            <% end %>
+            <%= link_to new_section_menu_item_path(section), class: "btn-icon btn-icon-add-light" do %>
+              <i class="bi bi-plus-lg"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-body">
+          <% if section.description.present? %>
+            <p class="text-muted"><%= section.description %></p>
+          <% end %>
+
+          <% if section.menu_items.any? %>
+            <div class="menu-items-container">
+              <% section.menu_items.each do |item| %>
+                <div class="menu-item-card">
+                  <div class="menu-item-image">
+                    <%= image_tag "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop", alt: item.name, class: "item-img" %>
+                  </div>
+                  <div class="menu-item-content">
+                    <div class="menu-item-header">
+                      <h5 class="menu-item-name"><%= item.name %></h5>
+                      <% if item.price.present? %>
+                        <span class="menu-item-price">$<%= number_with_precision(item.price, precision: 2) %></span>
+                      <% end %>
+                    </div>
+                    <% if item.description.present? %>
+                      <p class="menu-item-description"><%= item.description %></p>
+                    <% end %>
+                    <div class="menu-item-actions">
+                      <%= link_to edit_section_menu_item_path(section, item), class: "btn-icon" do %>
+                        <i class="bi bi-pencil"></i>
+                      <% end %>
+                      <%= button_to section_menu_item_path(section, item), method: :delete,
+                          data: { turbo_confirm: "Are you sure?" }, class: "btn-icon btn-icon-danger" do %>
+                        <i class="bi bi-trash"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <p class="text-muted fst-italic">No items in this section yet.</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="alert alert-info">
+      <p class="mb-0">This menu doesn't have any sections yet. <%= link_to "Add your first section", new_menu_section_path(@menu), class: "alert-link" %>!</p>
+    </div>
+  <% end %>
+</div>
