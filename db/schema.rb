@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_04_181723) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_04_202355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_04_181723) do
     t.integer "position", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "content_locale", default: "en"
     t.index ["section_id"], name: "index_menu_items_on_section_id"
   end
 
@@ -31,6 +32,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_04_181723) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.string "content_locale", default: "en"
     t.index ["user_id"], name: "index_menus_on_user_id"
   end
 
@@ -41,7 +43,20 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_04_181723) do
     t.integer "position", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "content_locale", default: "en"
     t.index ["menu_id"], name: "index_sections_on_menu_id"
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.string "translatable_type", null: false
+    t.bigint "translatable_id", null: false
+    t.string "field_name", null: false
+    t.string "locale", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["translatable_type", "translatable_id", "field_name", "locale"], name: "index_translations_on_translatable_and_field_and_locale", unique: true
+    t.index ["translatable_type", "translatable_id"], name: "index_translations_on_translatable"
   end
 
   create_table "users", force: :cascade do |t|

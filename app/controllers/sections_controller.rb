@@ -8,8 +8,10 @@ class SectionsController < ApplicationController
 
   def create
     @section = @menu.sections.build(section_params)
+    @section.content_locale = I18n.locale.to_s
 
     if @section.save
+      trigger_translations(@section, [ :name ])
       redirect_to @menu, notice: "Section was successfully added."
     else
       render :new, status: :unprocessable_entity
@@ -21,6 +23,7 @@ class SectionsController < ApplicationController
 
   def update
     if @section.update(section_params)
+      trigger_translations(@section, [ :name ])
       redirect_to @menu, notice: "Section was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -44,5 +47,12 @@ class SectionsController < ApplicationController
 
   def section_params
     params.require(:section).permit(:name, :description, :position)
+  end
+
+  def trigger_translations(record, fields)
+    target_locale = record.opposite_locale
+    fields.each do |field|
+      TranslateContentJob.perform_later(record, field, target_locale)
+    end
   end
 end

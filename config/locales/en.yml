@@ -28,4 +28,50 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  app_name: "QR Menu Manager"
+  language: "Language"
+  navbar:
+    home: "Home"
+    menus: "Menus"
+    login: "Login"
+    logout: "Log out"
+    action: "Action"
+    another_action: "Another action"
+  home:
+    title: "QR Menu Manager"
+    subtitle: "Create beautiful digital menus and galleries for your restaurant"
+    restaurant_menus:
+      title: "Restaurant Menus"
+      description: "Create and manage digital menus with sections and items. Perfect for restaurants, cafés, and bars."
+      button: "Manage Menus"
+    galleries:
+      title: "Galleries"
+      description: "Showcase your dishes and ambiance with beautiful photo galleries."
+      button: "Coming Soon"
+  menus:
+    index:
+      title: "My Menus"
+      create_new: "Create New Menu"
+      sections: "sections"
+      no_menus: "You haven't created any menus yet."
+      create_first: "Create your first menu"
+      delete_confirm: "Are you sure you want to delete this menu?"
+    show:
+      add_section: "Add Section"
+      qr_code: "QR Code"
+      no_sections: "This menu doesn't have any sections yet."
+      add_first_section: "Add your first section"
+      edit: "Edit"
+      delete: "Delete"
+      delete_confirm: "Are you sure?"
+      add_item: "Add Item"
+      no_items: "No items in this section yet."
+    qr_code:
+      title: "QR Code for %{name}"
+      scan_message: "Scan this QR code to view the menu"
+      download_svg: "Download SVG"
+      download_png: "Download PNG"
+      back_to_menu: "Back to Menu"
+      links_to: "QR Code links to:"
+    public:
+      empty_menu: "This menu is currently empty."

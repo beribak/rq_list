@@ -22,8 +22,10 @@ class MenusController < ApplicationController
 
   def create
     @menu = current_user.menus.new(menu_params)
+    @menu.content_locale = I18n.locale.to_s
 
     if @menu.save
+      trigger_translations(@menu, [ :name, :description ])
       redirect_to @menu, notice: "Menu was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -35,6 +37,7 @@ class MenusController < ApplicationController
 
   def update
     if @menu.update(menu_params)
+      trigger_translations(@menu, [ :name, :description ])
       redirect_to @menu, notice: "Menu was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -96,5 +99,14 @@ class MenusController < ApplicationController
 
   def menu_params
     params.require(:menu).permit(:name, :description)
+  end
+
+  def trigger_translations(record, fields)
+    # Translate to the opposite locale of what the content was created in
+    target_locale = record.opposite_locale
+
+    fields.each do |field|
+      TranslateContentJob.perform_later(record, field, target_locale)
+    end
   end
 end

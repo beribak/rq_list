@@ -8,8 +8,10 @@ class MenuItemsController < ApplicationController
 
   def create
     @menu_item = @section.menu_items.build(menu_item_params)
+    @menu_item.content_locale = I18n.locale.to_s
 
     if @menu_item.save
+      trigger_translations(@menu_item, [ :name, :description ])
       redirect_to menu_path(@section.menu), notice: "Menu item was successfully added."
     else
       render :new, status: :unprocessable_entity
@@ -21,6 +23,7 @@ class MenuItemsController < ApplicationController
 
   def update
     if @menu_item.update(menu_item_params)
+      trigger_translations(@menu_item, [ :name, :description ])
       redirect_to menu_path(@section.menu), notice: "Menu item was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -44,5 +47,13 @@ class MenuItemsController < ApplicationController
 
   def menu_item_params
     params.require(:menu_item).permit(:name, :description, :price, :position)
+  end
+
+  def trigger_translations(record, fields)
+    target_locale = record.opposite_locale
+    fields.each do |field|
+      next if record.send(field).blank?
+      TranslateContentJob.perform_later(record, field, target_locale)
+    end
   end
 end

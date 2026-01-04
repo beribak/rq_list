@@ -3,10 +3,10 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h2 class="mb-0">QR Code for <%= @menu.name %></h2>
+          <h2 class="mb-0"><%= t('menus.qr_code.title', name: @menu.name) %></h2>
         </div>
         <div class="card-body text-center">
-          <p class="text-muted mb-4">Scan this QR code to view the menu</p>
+          <p class="text-muted mb-4"><%= t('menus.qr_code.scan_message') %></p>
           
           <div class="mb-4">
             <%= @qr.as_svg(
@@ -19,18 +19,18 @@
           </div>
 
           <div class="d-flex gap-2 justify-content-center flex-wrap">
-            <%= link_to "Download SVG", qr_code_menu_path(@menu, format: :svg), 
+            <%= link_to t('menus.qr_code.download_svg'), qr_code_menu_path(@menu, format: :svg), 
                 class: "btn btn-primary", 
                 download: "#{@menu.name.parameterize}-qr.svg" %>
-            <%= link_to "Download PNG", qr_code_menu_path(@menu, format: :png), 
+            <%= link_to t('menus.qr_code.download_png'), qr_code_menu_path(@menu, format: :png), 
                 class: "btn btn-success", 
                 download: "#{@menu.name.parameterize}-qr.png" %>
-            <%= link_to "Back to Menu", menu_path(@menu), class: "btn btn-outline-secondary" %>
+            <%= link_to t('menus.qr_code.back_to_menu'), menu_path(@menu), class: "btn btn-outline-secondary" %>
           </div>
 
           <div class="mt-4">
             <p class="text-muted small">
-              QR Code links to: <%= public_menu_url(@menu) %>
+              <%= t('menus.qr_code.links_to') %> <%= public_menu_url(@menu) %>
             </p>
           </div>
         </div>

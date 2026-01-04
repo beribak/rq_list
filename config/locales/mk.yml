@@ -1,0 +1,48 @@
+mk:
+  app_name: "Менаџер на QR Мени"
+  language: "Јазик"
+  navbar:
+    home: "Дома"
+    menus: "Менија"
+    login: "Најави се"
+    logout: "Одјави се"
+    action: "Акција"
+    another_action: "Друга акција"
+  home:
+    title: "Менаџер на QR Мени"
+    subtitle: "Креирајте прекрасни дигитални менија и галерии за вашиот ресторан"
+    restaurant_menus:
+      title: "Ресторански Менија"
+      description: "Креирајте и управувајте со дигитални менија со секции и ставки. Совршено за ресторани, кафулиња и барови."
+      button: "Управувај со Менија"
+    galleries:
+      title: "Галерии"
+      description: "Прикажете ги вашите јадења и амбиент со прекрасни фото галерии."
+      button: "Наскоро"
+  menus:
+    index:
+      title: "Мои Менија"
+      create_new: "Креирај Ново Мени"
+      sections: "секции"
+      no_menus: "Сè уште немате креирано менија."
+      create_first: "Креирајте го вашето прво мени"
+      delete_confirm: "Дали сте сигурни дека сакате да го избришете ова мени?"
+    show:
+      add_section: "Додај Секција"
+      qr_code: "QR Код"
+      no_sections: "Ова мени сè уште нема секции."
+      add_first_section: "Додајте ја вашата прва секција"
+      edit: "Измени"
+      delete: "Избриши"
+      delete_confirm: "Дали сте сигурни?"
+      add_item: "Додај Ставка"
+      no_items: "Сè уште нема ставки во оваа секција."
+    qr_code:
+      title: "QR Код за %{name}"
+      scan_message: "Скенирајте го овој QR код за да го видите менито"
+      download_svg: "Преземи SVG"
+      download_png: "Преземи PNG"
+      back_to_menu: "Назад на Мени"
+      links_to: "QR Кодот води до:"
+    public:
+      empty_menu: "Ова мени моментално е празно."
