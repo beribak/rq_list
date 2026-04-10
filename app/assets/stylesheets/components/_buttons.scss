@@ -1,78 +1,76 @@
-// Rounded buttons globally
 .btn {
-  border-radius: 20px;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.btn-sm {
-  border-radius: 15px;
-}
-
-.btn-lg {
-  border-radius: 25px;
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 .btn-primary {
-  background-color: $dark-blue;
-  border-color: $dark-blue;
-  color: white;
-  
-  &:hover {
-    background-color: darken($dark-blue, 10%);
-    border-color: darken($dark-blue, 10%);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.95), rgba(var(--accent-rgb), 0.72));
+  border-color: rgba(var(--accent-rgb), 0.8);
+  box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.25);
+  color: var(--accent-contrast);
 }
 
-.btn-danger, .btn-outline-danger {
-  border-color: $red;
-  
-  &:hover {
-    background-color: $red;
-    border-color: $red;
-  }
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 1), rgba(var(--accent-rgb), 0.8));
+  border-color: rgba(var(--accent-rgb), 0.95);
+  box-shadow: 0 0 34px rgba(var(--accent-rgb), 0.35);
+  color: var(--accent-contrast);
 }
 
-.btn-info {
-  background-color: $teal;
-  border-color: $teal;
-  color: white;
-  
-  &:hover {
-    background-color: darken($teal, 10%);
-    border-color: darken($teal, 10%);
-    color: white;
-  }
-}
-
-.btn-outline-secondary {
-  border-color: $dark-blue;
-  color: $dark-blue;
-  
-  &:hover {
-    background-color: $dark-blue;
-    border-color: $dark-blue;
-    color: white;
-  }
-}
-
+.btn-outline-secondary,
 .btn-outline-primary {
-  border-color: $teal;
-  color: $teal;
-  
-  &:hover {
-    background-color: $teal;
-    border-color: $teal;
-    color: white;
-  }
+  background: var(--surface-1);
+  border-color: var(--surface-border-strong);
+  color: var(--text-main);
 }
 
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background: var(--surface-strong);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  color: var(--accent);
+}
+
+.btn-info,
 .btn-success {
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
+  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  color: var(--accent);
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-success:hover,
+.btn-success:focus {
+  background: rgba(var(--accent-rgb), 0.2);
+  border-color: rgba(var(--accent-rgb), 0.75);
+  color: var(--text-main);
+  box-shadow: 0 0 28px rgba(var(--accent-rgb), 0.18);
+}
+
+.btn-danger,
+.btn-outline-danger {
+  background: rgba(var(--danger-rgb), 0.1);
+  border-color: rgba(var(--danger-rgb), 0.5);
+  color: var(--danger);
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-outline-danger:hover,
+.btn-outline-danger:focus {
+  background: rgba(var(--danger-rgb), 0.18);
+  border-color: rgba(var(--danger-rgb), 0.82);
+  color: var(--text-main);
+  box-shadow: 0 0 24px rgba(var(--danger-rgb), 0.2);
 }

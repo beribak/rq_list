@@ -34,6 +34,12 @@
         <% end %>
       </ul>
       <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to request.params.merge(theme: next_theme), class: "nav-link theme-toggle-link" do %>
+            <i class="bi <%= theme_toggle_icon %>"></i>
+            <span><%= theme_toggle_label %></span>
+          <% end %>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-translate"></i>

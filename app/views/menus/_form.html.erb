@@ -1,25 +1,31 @@
-<div class="container mt-4">
+<div class="app-container content-section">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1><%= @menu.persisted? ? "Edit Menu" : "New Menu" %></h1>
-
-      <%= simple_form_for @menu do |f| %>
-        <%= f.input :name, 
-            label: "Menu Name",
-            placeholder: "e.g., Dinner Menu, Lunch Specials",
-            input_html: { class: "form-control" } %>
-        
-        <%= f.input :description, 
-            label: "Description",
-            as: :text,
-            placeholder: "Describe your menu...",
-            input_html: { rows: 4, class: "form-control" } %>
-
-        <div class="d-flex gap-2 mt-4">
-          <%= f.button :submit, class: "btn btn-primary" %>
-          <%= link_to "Cancel", @menu.persisted? ? menu_path(@menu) : menus_path, class: "btn btn-outline-secondary" %>
+      <div class="form-shell">
+        <div class="form-shell-header">
+          <p class="eyebrow"><%= t("menus.form.eyebrow") %></p>
+          <h1><%= @menu.persisted? ? "Edit Menu" : "New Menu" %></h1>
+          <p class="section-subtitle"><%= t("menus.form.subtitle") %></p>
         </div>
-      <% end %>
+
+        <%= simple_form_for @menu do |f| %>
+          <%= f.input :name,
+              label: t("menus.form.name_label"),
+              placeholder: t("menus.form.name_placeholder"),
+              input_html: { class: "form-control" } %>
+
+          <%= f.input :description,
+              label: t("menus.form.description_label"),
+              as: :text,
+              placeholder: t("menus.form.description_placeholder"),
+              input_html: { rows: 4, class: "form-control" } %>
+
+          <div class="d-flex gap-2 mt-4 flex-wrap">
+            <%= f.button :submit, class: "btn btn-primary" %>
+            <%= link_to t("menus.form.cancel"), @menu.persisted? ? menu_path(@menu) : menus_path, class: "btn btn-outline-secondary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

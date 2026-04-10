@@ -1,31 +1,34 @@
-<div class="container mt-4">
+<div class="app-container content-section">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1><%= @section.persisted? ? "Edit Section" : "New Section" %></h1>
-      <p class="text-muted">Menu: <%= @menu.name %></p>
+      <div class="form-shell">
+      <p class="eyebrow"><%= t("sections.form.eyebrow") %></p>
+      <h1><%= @section.persisted? ? t("sections.form.title_edit") : t("sections.form.title_new") %></h1>
+      <p class="section-subtitle"><%= t("sections.form.subtitle_prefix") %> <%= @menu.name %></p>
 
       <%= simple_form_for [@menu, @section] do |f| %>
         <%= f.input :name, 
-            label: "Section Name",
-            placeholder: "e.g., Appetizers, Main Courses, Desserts",
+            label: t("sections.form.name_label"),
+            placeholder: t("sections.form.name_placeholder"),
             input_html: { class: "form-control" } %>
         
         <%= f.input :description, 
-            label: "Description (optional)",
+            label: t("sections.form.description_label"),
             as: :text,
-            placeholder: "Describe this section...",
+            placeholder: t("sections.form.description_placeholder"),
             input_html: { rows: 3, class: "form-control" } %>
 
         <%= f.input :position,
-            label: "Position",
-            hint: "Order in which this section appears (lower numbers appear first)",
+            label: t("sections.form.position_label"),
+            hint: t("sections.form.position_hint"),
             input_html: { class: "form-control" } %>
 
-        <div class="d-flex gap-2 mt-4">
+        <div class="d-flex gap-2 mt-4 flex-wrap">
           <%= f.button :submit, class: "btn btn-primary" %>
-          <%= link_to "Cancel", menu_path(@menu), class: "btn btn-outline-secondary" %>
+          <%= link_to t("sections.form.cancel"), menu_path(@menu), class: "btn btn-outline-secondary" %>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

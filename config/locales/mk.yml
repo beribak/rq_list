@@ -1,6 +1,9 @@
 mk:
   app_name: "Менаџер на QR Мени"
   language: "Јазик"
+  theme:
+    switch_to_light: "Светол режим"
+    switch_to_dark: "Темен режим"
   navbar:
     home: "Дома"
     menus: "Менија"

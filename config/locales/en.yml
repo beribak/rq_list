@@ -30,6 +30,9 @@
 en:
   app_name: "QR Menu Manager"
   language: "Language"
+  theme:
+    switch_to_light: "Light mode"
+    switch_to_dark: "Dark mode"
   navbar:
     home: "Home"
     menus: "Menus"

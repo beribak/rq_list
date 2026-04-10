@@ -23,9 +23,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body class="<%= controller_name.dasherize %>-controller <%= action_name.dasherize %>-action theme-<%= current_theme %>">
+    <div class="site-chrome">
+      <div class="site-glow site-glow-left"></div>
+      <div class="site-glow site-glow-right"></div>
+      <div class="site-grid"></div>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <main class="page-stage">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
