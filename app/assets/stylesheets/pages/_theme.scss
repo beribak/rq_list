@@ -28,26 +28,26 @@ body.theme-light {
   --bg-main: #f7f3ef;
   --bg-secondary: #fffaf6;
   --bg-tertiary: #f2eae4;
-  --surface-1: rgba(255, 255, 255, 0.92);
-  --surface-2: rgba(248, 240, 235, 0.98);
-  --surface-soft: rgba(137, 41, 57, 0.04);
-  --surface-strong: rgba(137, 41, 57, 0.08);
-  --surface-border: rgba(137, 41, 57, 0.12);
-  --surface-border-strong: rgba(137, 41, 57, 0.18);
+  --surface-1: rgba(255, 255, 255, 0.94);
+  --surface-2: rgba(249, 241, 236, 0.98);
+  --surface-soft: rgba(180, 20, 20, 0.04);
+  --surface-strong: rgba(180, 20, 20, 0.08);
+  --surface-border: rgba(180, 20, 20, 0.14);
+  --surface-border-strong: rgba(180, 20, 20, 0.22);
   --text-main: #24161a;
   --text-heading: #1b1114;
   --text-muted: rgba(64, 37, 43, 0.72);
-  --accent: #ff4d6d;
-  --accent-rgb: 255, 77, 109;
-  --accent-contrast: #fff6f8;
-  --danger: #d42f50;
-  --danger-rgb: 212, 47, 80;
-  --glow-left: rgba(255, 77, 109, 0.14);
-  --glow-right: rgba(255, 143, 92, 0.12);
+  --accent: #ff1f1f;
+  --accent-rgb: 255, 31, 31;
+  --accent-contrast: #fff8f8;
+  --danger: #bf1010;
+  --danger-rgb: 191, 16, 16;
+  --glow-left: rgba(255, 31, 31, 0.16);
+  --glow-right: rgba(255, 98, 98, 0.12);
   --grid-color: rgba(80, 34, 41, 0.04);
-  --hero-extra: rgba(255, 196, 168, 0.2);
-  --shadow-heavy: 0 24px 70px rgba(96, 42, 54, 0.12);
-  --shadow-panel: 0 14px 34px rgba(96, 42, 54, 0.1);
+  --hero-extra: rgba(255, 210, 210, 0.22);
+  --shadow-heavy: 0 24px 70px rgba(120, 26, 26, 0.12);
+  --shadow-panel: 0 14px 34px rgba(120, 26, 26, 0.1);
 }
 
 body {
