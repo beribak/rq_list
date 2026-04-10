@@ -1,39 +1,47 @@
-<div class="container mt-4">
-  <!-- Debug info (remove this later) -->
-  <div class="alert alert-info">
-    Current locale: <%= I18n.locale %> | 
-    Menu content locale: <%= @menu.content_locale %> |
-    Translation exists: <%= @menu.translations.where(locale: I18n.locale).exists? %>
-  </div>
-  
-  <div class="d-flex flex-column justify-content-center align-items-center mb-4 gap-3 text-center">
+<div class="app-container content-section public-menu-page">
+  <div class="d-flex flex-column justify-content-center align-items-center mb-5 gap-3 text-center">
     <div>
       <h1><%= @menu.name_translated %></h1>
-      <p class="text-muted"><%= @menu.description_translated %></p>
+      <p class="section-subtitle"><%= @menu.description_translated %></p>
     </div>
   </div>
 
   <% if @sections.any? %>
-    <% @sections.each do |section| %>
-      <div class="card mb-4">
-        <div class="card-header">
-          <h3 class="mb-0"><%= section.name_translated %></h3>
-        </div>
-        <div class="card-body">
+    <nav class="menu-section-nav public-menu-section-nav" aria-label="Menu sections">
+      <div class="menu-section-nav-track">
+        <% @sections.each do |section| %>
+          <%= link_to "##{dom_id(section, :menu_section)}", class: "menu-section-nav-link" do %>
+            <span><%= section.name_translated %></span>
+          <% end %>
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="menu-sheet public-menu-sheet">
+      <% @sections.each do |section| %>
+        <section id="<%= dom_id(section, :menu_section) %>" class="menu-section-block">
+          <div class="menu-section-heading">
+            <h2><%= section.name_translated %></h2>
+            <span class="menu-section-underline"></span>
+          </div>
+
           <% if section.description.present? %>
-            <p class="text-muted"><%= section.description %></p>
+            <p class="menu-section-description"><%= section.description %></p>
           <% end %>
 
           <% if section.menu_items.any? %>
-            <div class="menu-items-container">
+            <div class="menu-list">
               <% section.menu_items.each do |item| %>
-                <div class="menu-item-card">
+                <article class="menu-list-item public-menu-item">
                   <div class="menu-item-image">
                     <%= image_tag "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop", alt: item.name_translated, class: "item-img" %>
                   </div>
                   <div class="menu-item-content">
                     <div class="menu-item-header">
-                      <h5 class="menu-item-name"><%= item.name_translated %></h5>
+                      <div class="menu-item-title-wrap">
+                        <h5 class="menu-item-name"><%= item.name_translated %></h5>
+                        <span class="menu-item-rule"></span>
+                      </div>
                       <% if item.price.present? %>
                         <span class="menu-item-price">$<%= number_with_precision(item.price, precision: 2) %></span>
                       <% end %>
@@ -42,17 +50,17 @@
                       <p class="menu-item-description"><%= item.description_translated %></p>
                     <% end %>
                   </div>
-                </div>
+                </article>
               <% end %>
             </div>
           <% else %>
-            <p class="text-muted fst-italic"><%= t('menus.show.no_items') %></p>
+            <p class="menu-empty-note"><%= t('menus.show.no_items') %></p>
           <% end %>
-        </div>
-      </div>
-    <% end %>
+        </section>
+      <% end %>
+    </div>
   <% else %>
-    <div class="alert alert-info">
+    <div class="alert alert-info panel-alert">
       <p class="mb-0"><%= t('menus.public.empty_menu') %></p>
     </div>
   <% end %>

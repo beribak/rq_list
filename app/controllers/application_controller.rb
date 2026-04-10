@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_theme
-    selected_theme = params[:theme].presence_in(%w[dark light]) || cookies[:theme].presence_in(%w[dark light]) || "dark"
+    selected_theme = params[:theme].presence_in(%w[dark light]) || session[:theme].presence_in(%w[dark light]) || cookies[:theme].presence_in(%w[dark light]) || "dark"
+    session[:theme] = selected_theme
     cookies[:theme] = {
       value: selected_theme,
       expires: 1.year.from_now,

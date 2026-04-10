@@ -7,6 +7,13 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script>
+      (() => {
+        const themeFromCookie = document.cookie.match(/(?:^|;\s*)theme=(dark|light)(?:;|$)/)?.[1]
+        const theme = localStorage.getItem("theme") || themeFromCookie || "dark"
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
 
     <%= yield :head %>
 
@@ -23,16 +30,40 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="<%= controller_name.dasherize %>-controller <%= action_name.dasherize %>-action theme-<%= current_theme %>">
+  <body class="<%= controller_name.dasherize %>-controller <%= action_name.dasherize %>-action theme-<%= current_theme %>" data-current-theme="<%= current_theme %>">
+    <script>
+      (() => {
+        const theme = document.documentElement.dataset.theme
+        if (!theme || !document.body) return
+        document.body.classList.remove("theme-dark", "theme-light")
+        document.body.classList.add(`theme-${theme}`)
+      })()
+    </script>
     <div class="site-chrome">
       <div class="site-glow site-glow-left"></div>
       <div class="site-glow site-glow-right"></div>
       <div class="site-grid"></div>
-      <%= render "shared/navbar" %>
+      <% unless controller_name == "menus" && action_name == "public" %>
+        <%= render "shared/navbar" %>
+      <% end %>
       <%= render "shared/flashes" %>
       <main class="page-stage">
         <%= yield %>
       </main>
     </div>
+    <script>
+      (() => {
+        const applyTheme = () => {
+          const theme = document.body?.dataset.currentTheme || "dark"
+          document.documentElement.dataset.theme = theme
+          document.body?.classList.remove("theme-dark", "theme-light")
+          document.body?.classList.add(`theme-${theme}`)
+          localStorage.setItem("theme", theme)
+        }
+
+        document.addEventListener("turbo:load", applyTheme)
+        applyTheme()
+      })()
+    </script>
   </body>
 </html>

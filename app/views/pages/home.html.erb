@@ -1,47 +1,79 @@
-<div class="container mt-5">
-  <div class="text-center mb-5">
-    <h1 class="display-4 mb-3"><%= t('home.title') %></h1>
-    <p class="lead text-muted"><%= t('home.subtitle') %></p>
+<section class="app-container hero-panel">
+  <div class="hero-qr-graphic" aria-hidden="true">
+    <span class="hero-qr-finder hero-qr-finder-top"></span>
+    <span class="hero-qr-finder hero-qr-finder-right"></span>
+    <span class="hero-qr-finder hero-qr-finder-bottom"></span>
+    <span class="hero-qr-noise hero-qr-noise-one"></span>
+    <span class="hero-qr-noise hero-qr-noise-two"></span>
+    <span class="hero-qr-noise hero-qr-noise-three"></span>
+    <span class="hero-qr-noise hero-qr-noise-four"></span>
+    <span class="hero-qr-noise hero-qr-noise-five"></span>
+    <span class="hero-qr-noise hero-qr-noise-six"></span>
+    <span class="hero-qr-noise hero-qr-noise-seven"></span>
+    <span class="hero-qr-noise hero-qr-noise-eight"></span>
   </div>
 
-  <div class="row justify-content-center g-4">
-    <div class="col-md-5">
-      <div class="card h-100 shadow-sm hover-card">
-        <div class="card-body text-center p-5">
-          <div class="mb-4">
-            <i class="bi bi-menu-button-wide display-1 text-primary"></i>
-          </div>
-          <h2 class="card-title mb-3"><%= t('home.restaurant_menus.title') %></h2>
-          <p class="card-text text-muted mb-4">
-            <%= t('home.restaurant_menus.description') %>
-          </p>
-          <%= link_to t('home.restaurant_menus.button'), menus_path, class: "btn btn-primary btn-lg" %>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-5">
-      <div class="card h-100 shadow-sm hover-card">
-        <div class="card-body text-center p-5">
-          <div class="mb-4">
-            <i class="bi bi-images display-1 text-success"></i>
-          </div>
-          <h2 class="card-title mb-3"><%= t('home.galleries.title') %></h2>
-          <p class="card-text text-muted mb-4">
-            <%= t('home.galleries.description') %>
-          </p>
-          <button class="btn btn-outline-secondary btn-lg" disabled><%= t('home.galleries.button') %></button>
-        </div>
-      </div>
+  <div class="hero-copy">
+    <p class="eyebrow"><%= t("home.eyebrow") %></p>
+    <h1><%= t("home.hero_title_html").html_safe %></h1>
+    <p class="hero-subtitle"><%= t("home.hero_subtitle") %></p>
+    <div class="hero-actions">
+      <%= link_to t("home.restaurant_menus.button"), menus_path, class: "btn btn-primary btn-lg" %>
+      <% unless user_signed_in? %>
+        <%= link_to t("home.enter_studio"), new_user_session_path, class: "btn btn-outline-secondary btn-lg" %>
+      <% end %>
     </div>
   </div>
-</div>
 
-<style>
-  .hover-card {
-    transition: transform 0.2s ease-in-out;
-  }
-  .hover-card:hover {
-    transform: translateY(-5px);
-  }
-</style>
+  <aside class="hero-side panel-card capability-card">
+    <div class="panel-card-header">
+      <span class="status-dot"></span>
+      <span><%= t("home.snapshot_title") %></span>
+    </div>
+    <div class="metric-row">
+      <span><%= t("home.metrics.menu_design") %></span>
+      <strong>96%</strong>
+    </div>
+    <div class="metric-bar"><span style="width: 96%"></span></div>
+    <div class="metric-row">
+      <span><%= t("home.metrics.qr_delivery") %></span>
+      <strong>92%</strong>
+    </div>
+    <div class="metric-bar"><span style="width: 92%"></span></div>
+    <div class="metric-row">
+      <span><%= t("home.metrics.guest_experience") %></span>
+      <strong>94%</strong>
+    </div>
+    <div class="metric-bar"><span style="width: 94%"></span></div>
+  </aside>
+</section>
+
+<section class="app-container content-section">
+  <div class="section-heading">
+    <p class="eyebrow"><%= t("home.experience_eyebrow") %></p>
+    <h2><%= t("home.experience_title") %></h2>
+  </div>
+
+  <div class="feature-grid">
+    <article class="panel-card feature-card">
+      <i class="bi bi-menu-button-wide"></i>
+      <h3><%= t("home.restaurant_menus.title") %></h3>
+      <p><%= t("home.restaurant_menus.description") %></p>
+      <%= link_to t("home.open_menus"), menus_path, class: "feature-link" %>
+    </article>
+
+    <article class="panel-card feature-card accent-red">
+      <i class="bi bi-qr-code-scan"></i>
+      <h3><%= t("home.qr_presentation_title") %></h3>
+      <p><%= t("home.qr_presentation_description") %></p>
+      <span class="feature-link muted-link"><%= t("home.qr_presentation_status") %></span>
+    </article>
+
+    <article class="panel-card feature-card">
+      <i class="bi bi-stars"></i>
+      <h3><%= t("home.galleries.title") %></h3>
+      <p><%= t("home.galleries.description") %></p>
+      <span class="feature-link muted-link"><%= t("home.galleries.button") %></span>
+    </article>
+  </div>
+</section>

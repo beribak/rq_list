@@ -41,6 +41,21 @@ en:
     action: "Action"
     another_action: "Another action"
   home:
+    eyebrow: "Night service, redesigned"
+    hero_title_html: "Menus that glow <span class='neon-text'>through every scan</span>"
+    hero_subtitle: "Build sleek QR menus for restaurants, bars, and cafes with a sharper presentation, cleaner sections, and a guest experience that feels premium from the very first glance."
+    enter_studio: "Enter the studio"
+    snapshot_title: "Live floor snapshot"
+    experience_eyebrow: "Designed for the room"
+    experience_title: "Everything guests need, styled like a proper modern menu."
+    open_menus: "Open menus"
+    qr_presentation_title: "QR presentation"
+    qr_presentation_description: "Turn one scan into a polished browsing flow with elegant sections, sticky navigation, and a layout that feels deliberate."
+    qr_presentation_status: "Guest view live"
+    metrics:
+      menu_design: "Menu design"
+      qr_delivery: "QR delivery"
+      guest_experience: "Guest experience"
     title: "QR Menu Manager"
     subtitle: "Create beautiful digital menus and galleries for your restaurant"
     restaurant_menus:
