@@ -41,10 +41,13 @@ en:
     action: "Action"
     another_action: "Another action"
   home:
-    eyebrow: "Night service, redesigned"
+    eyebrow: "Free for the first month"
     hero_title_html: "Menus that glow <span class='neon-text'>through every scan</span>"
-    hero_subtitle: "Build sleek QR menus for restaurants, bars, and cafes with a sharper presentation, cleaner sections, and a guest experience that feels premium from the very first glance."
+    hero_subtitle: "Build sleek QR menus for restaurants, bars, and cafes with polished public pages, multiple menu themes, and a guest experience that feels premium from the very first glance."
     enter_studio: "Enter the studio"
+    offer:
+      badge: "Launch Offer"
+      details: "Use the platform free for one month. After that, keep all updates active for a 10 EUR yearly subscription."
     steps_title: "Three quick steps"
     experience_eyebrow: "Designed for the room"
     experience_title: "Everything guests need, styled like a proper modern menu."
@@ -72,6 +75,15 @@ en:
       title: "Galleries"
       description: "Showcase your dishes and ambiance with beautiful photo galleries."
       button: "Coming Soon"
+    templates:
+      title: "Menu themes:"
+      neon_noir: "Neon Noir"
+      rouge_blanc: "Rouge Blanc"
+      electric_blue: "Electric Blue"
+      champagne_gold: "Champagne Gold"
+      card_title: "Menu themes"
+      card_description: "Choose from bold neon looks and elegant light layouts so each menu matches your place, not just the QR code."
+      card_status: "4 templates available"
   menus:
     index:
       title: "My Menus"

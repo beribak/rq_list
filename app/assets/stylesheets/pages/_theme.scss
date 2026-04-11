@@ -324,6 +324,68 @@ h6 {
   line-height: 1.8;
 }
 
+.hero-offer-banner {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 42rem;
+  margin-top: 1.35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.1), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+}
+
+.hero-offer-banner p {
+  margin: 0;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.hero-offer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.4rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-theme-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  max-width: 46rem;
+  margin-top: 1rem;
+}
+
+.hero-theme-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hero-theme-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.15rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  border-radius: 0.4rem;
+  background: rgba(var(--accent-rgb), 0.05);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -333,7 +395,7 @@ h6 {
 
 .capability-card {
   padding: 1.1rem 1.15rem;
-  align-self: start;
+  align-self: end;
 }
 
 .panel-card-header {
@@ -658,6 +720,14 @@ body.theme-light .hero-qr-graphic {
   .hero-copy h1 {
     max-width: 100%;
     font-size: clamp(3rem, 16vw, 4.8rem);
+  }
+
+  .hero-offer-banner {
+    padding: 0.9rem 0.95rem;
+  }
+
+  .hero-theme-strip {
+    gap: 0.55rem;
   }
 
   .hero-qr-graphic {

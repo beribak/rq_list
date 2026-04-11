@@ -17,6 +17,17 @@
     <p class="eyebrow"><%= t("home.eyebrow") %></p>
     <h1><%= t("home.hero_title_html").html_safe %></h1>
     <p class="hero-subtitle"><%= t("home.hero_subtitle") %></p>
+    <div class="hero-offer-banner">
+      <span class="hero-offer-badge"><%= t("home.offer.badge") %></span>
+      <p><%= t("home.offer.details") %></p>
+    </div>
+    <div class="hero-theme-strip" aria-label="<%= t('home.templates.title') %>">
+      <span class="hero-theme-label"><%= t("home.templates.title") %></span>
+      <span class="hero-theme-chip"><%= t("home.templates.neon_noir") %></span>
+      <span class="hero-theme-chip"><%= t("home.templates.rouge_blanc") %></span>
+      <span class="hero-theme-chip"><%= t("home.templates.electric_blue") %></span>
+      <span class="hero-theme-chip"><%= t("home.templates.champagne_gold") %></span>
+    </div>
     <div class="hero-actions">
       <%= link_to t("home.restaurant_menus.button"), menus_path, class: "btn btn-primary btn-lg" %>
       <% unless user_signed_in? %>
@@ -81,9 +92,9 @@
 
     <article class="panel-card feature-card">
       <i class="bi bi-stars"></i>
-      <h3><%= t("home.galleries.title") %></h3>
-      <p><%= t("home.galleries.description") %></p>
-      <span class="feature-link muted-link"><%= t("home.galleries.button") %></span>
+      <h3><%= t("home.templates.card_title") %></h3>
+      <p><%= t("home.templates.card_description") %></p>
+      <span class="feature-link muted-link"><%= t("home.templates.card_status") %></span>
     </article>
   </div>
 </section>

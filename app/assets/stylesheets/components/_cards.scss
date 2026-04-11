@@ -152,6 +152,24 @@
   filter: saturate(0.96) brightness(0.94);
 }
 
+.menu-item-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb), 0.2), transparent 62%),
+    linear-gradient(180deg, rgba(var(--accent-rgb), 0.08), rgba(255, 255, 255, 0.02));
+  color: var(--accent);
+}
+
+.menu-item-placeholder i {
+  font-size: 1.9rem;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.16);
+}
+
 .menu-item-content {
   flex-grow: 1;
   display: flex;
@@ -769,6 +787,17 @@ body.theme-dark .section-card {
 
 .public-menu-page[class*="menu-template-"] .menu-item-image {
   border-color: rgba(var(--public-accent-rgb), 0.24);
+}
+
+.public-menu-page[class*="menu-template-"] .menu-item-placeholder {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(var(--public-accent-rgb), 0.18), transparent 62%),
+    linear-gradient(180deg, rgba(var(--public-accent-rgb), 0.08), rgba(255, 255, 255, 0.02));
+  color: var(--public-accent);
+}
+
+.public-menu-page[class*="menu-template-"] .menu-item-placeholder i {
+  text-shadow: 0 0 18px rgba(var(--public-accent-rgb), 0.14);
 }
 
 .menu-list {

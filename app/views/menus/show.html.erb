@@ -93,7 +93,9 @@
               <% section.menu_items.each do |item| %>
                 <article class="menu-list-item">
                   <div class="menu-item-image">
-                    <%= image_tag "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop", alt: item.name_translated, class: "item-img" %>
+                    <div class="menu-item-placeholder" aria-hidden="true">
+                      <i class="bi bi-fork-knife"></i>
+                    </div>
                   </div>
                   <div class="menu-item-content">
                     <div class="menu-item-header">
