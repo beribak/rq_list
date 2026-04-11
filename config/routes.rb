@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :menus do
     member do
       get :qr_code
+      patch :update_template
     end
     resources :sections, except: [ :index, :show ]
   end

@@ -45,17 +45,23 @@ en:
     hero_title_html: "Menus that glow <span class='neon-text'>through every scan</span>"
     hero_subtitle: "Build sleek QR menus for restaurants, bars, and cafes with a sharper presentation, cleaner sections, and a guest experience that feels premium from the very first glance."
     enter_studio: "Enter the studio"
-    snapshot_title: "Live floor snapshot"
+    steps_title: "Three quick steps"
     experience_eyebrow: "Designed for the room"
     experience_title: "Everything guests need, styled like a proper modern menu."
     open_menus: "Open menus"
     qr_presentation_title: "QR presentation"
     qr_presentation_description: "Turn one scan into a polished browsing flow with elegant sections, sticky navigation, and a layout that feels deliberate."
     qr_presentation_status: "Guest view live"
-    metrics:
-      menu_design: "Menu design"
-      qr_delivery: "QR delivery"
-      guest_experience: "Guest experience"
+    steps:
+      create_account:
+        title: "Create an account"
+        description: "Set up your space in a minute and start managing your digital menu from one clean dashboard."
+      build_menu:
+        title: "Build your menu"
+        description: "Add sections, dishes, prices, and descriptions with a layout that stays elegant on every screen."
+      publish:
+        title: "Publish and share"
+        description: "Generate your QR code and let guests open the menu instantly at the table."
     title: "QR Menu Manager"
     subtitle: "Create beautiful digital menus and galleries for your restaurant"
     restaurant_menus:
@@ -77,6 +83,7 @@ en:
     show:
       add_section: "Add Section"
       qr_code: "QR Code"
+      preview: "Preview"
       no_sections: "This menu doesn't have any sections yet."
       add_first_section: "Add your first section"
       edit: "Edit"
@@ -93,3 +100,18 @@ en:
       links_to: "QR Code links to:"
     public:
       empty_menu: "This menu is currently empty."
+    templates:
+      title: "Choose a menu template"
+      options:
+        neon_noir:
+          name: "Neon Noir"
+          description: "Dark room, neon green accents."
+        rouge_blanc:
+          name: "Rouge Blanc"
+          description: "Light paper with vivid neon red."
+        electric_blue:
+          name: "Electric Blue"
+          description: "Deep blue with crisp cyan highlights."
+        champagne_gold:
+          name: "Champagne Gold"
+          description: "Warm ivory with elegant gold details."

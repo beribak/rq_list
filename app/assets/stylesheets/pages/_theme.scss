@@ -30,24 +30,24 @@ body.theme-light {
   --bg-tertiary: #f5f7ea;
   --surface-1: rgba(255, 255, 255, 0.94);
   --surface-2: rgba(249, 251, 240, 0.98);
-  --surface-soft: rgba(183, 255, 42, 0.04);
-  --surface-strong: rgba(183, 255, 42, 0.08);
-  --surface-border: rgba(183, 255, 42, 0.14);
-  --surface-border-strong: rgba(183, 255, 42, 0.22);
+  --surface-soft: rgba(53, 249, 143, 0.04);
+  --surface-strong: rgba(53, 249, 143, 0.08);
+  --surface-border: rgba(53, 249, 143, 0.14);
+  --surface-border-strong: rgba(53, 249, 143, 0.22);
   --text-main: #24161a;
   --text-heading: #1b1114;
   --text-muted: rgba(64, 37, 43, 0.72);
-  --accent: #b7ff2a;
-  --accent-rgb: 183, 255, 42;
-  --accent-contrast: #131903;
+  --accent: #35f98f;
+  --accent-rgb: 53, 249, 143;
+  --accent-contrast: #04110a;
   --danger: #c63b5f;
   --danger-rgb: 198, 59, 95;
-  --glow-left: rgba(183, 255, 42, 0.16);
-  --glow-right: rgba(215, 255, 128, 0.1);
-  --grid-color: rgba(92, 112, 18, 0.05);
-  --hero-extra: rgba(232, 255, 188, 0.34);
-  --shadow-heavy: 0 24px 70px rgba(94, 117, 16, 0.12);
-  --shadow-panel: 0 14px 34px rgba(94, 117, 16, 0.1);
+  --glow-left: rgba(53, 249, 143, 0.16);
+  --glow-right: rgba(142, 255, 196, 0.1);
+  --grid-color: rgba(18, 112, 66, 0.05);
+  --hero-extra: rgba(206, 255, 226, 0.34);
+  --shadow-heavy: 0 24px 70px rgba(22, 128, 77, 0.12);
+  --shadow-panel: 0 14px 34px rgba(22, 128, 77, 0.1);
 }
 
 body {
@@ -152,7 +152,7 @@ h6 {
   right: 12%;
   width: clamp(12rem, 20vw, 18rem);
   aspect-ratio: 1;
-  opacity: 0.42;
+  opacity: 0.56;
   border: 1px solid rgba(var(--accent-rgb), 0.18);
   background:
     linear-gradient(90deg, rgba(var(--accent-rgb), 0.22) 6%, transparent 6% 12%, rgba(var(--accent-rgb), 0.12) 12% 18%, transparent 18% 24%, rgba(var(--accent-rgb), 0.16) 24% 30%, transparent 30% 36%, rgba(var(--accent-rgb), 0.2) 36% 42%, transparent 42% 48%, rgba(var(--accent-rgb), 0.12) 48% 54%, transparent 54% 60%, rgba(var(--accent-rgb), 0.18) 60% 66%, transparent 66% 72%, rgba(var(--accent-rgb), 0.1) 72% 78%, transparent 78% 84%, rgba(var(--accent-rgb), 0.18) 84% 90%, transparent 90%),
@@ -177,7 +177,7 @@ h6 {
   background:
     linear-gradient(90deg, transparent 4%, rgba(var(--accent-rgb), 0.16) 4% 8%, transparent 8% 16%, rgba(var(--accent-rgb), 0.12) 16% 20%, transparent 20% 29%, rgba(var(--accent-rgb), 0.18) 29% 33%, transparent 33% 41%, rgba(var(--accent-rgb), 0.14) 41% 45%, transparent 45% 58%, rgba(var(--accent-rgb), 0.16) 58% 62%, transparent 62% 71%, rgba(var(--accent-rgb), 0.2) 71% 75%, transparent 75% 83%, rgba(var(--accent-rgb), 0.14) 83% 87%, transparent 87%),
     linear-gradient(transparent 5%, rgba(var(--accent-rgb), 0.14) 5% 9%, transparent 9% 17%, rgba(var(--accent-rgb), 0.11) 17% 21%, transparent 21% 34%, rgba(var(--accent-rgb), 0.17) 34% 38%, transparent 38% 48%, rgba(var(--accent-rgb), 0.12) 48% 52%, transparent 52% 63%, rgba(var(--accent-rgb), 0.18) 63% 67%, transparent 67% 79%, rgba(var(--accent-rgb), 0.12) 79% 83%, transparent 83%);
-  opacity: 0.84;
+  opacity: 0.94;
 }
 
 .hero-qr-graphic::after {
@@ -185,7 +185,7 @@ h6 {
   background:
     linear-gradient(90deg, rgba(var(--accent-rgb), 0.34) 0 8%, transparent 8% 18%, rgba(var(--accent-rgb), 0.28) 18% 26%, transparent 26% 42%, rgba(var(--accent-rgb), 0.28) 42% 55%, transparent 55% 68%, rgba(var(--accent-rgb), 0.3) 68% 78%, transparent 78% 100%),
     linear-gradient(rgba(var(--accent-rgb), 0.3) 0 10%, transparent 10% 22%, rgba(var(--accent-rgb), 0.24) 22% 34%, transparent 34% 48%, rgba(var(--accent-rgb), 0.3) 48% 58%, transparent 58% 74%, rgba(var(--accent-rgb), 0.24) 74% 84%, transparent 84% 100%);
-  opacity: 0.78;
+  opacity: 0.9;
 }
 
 .hero-qr-finder,
@@ -332,15 +332,16 @@ h6 {
 }
 
 .capability-card {
-  padding: 1.5rem;
+  padding: 1.1rem 1.15rem;
+  align-self: start;
 }
 
 .panel-card-header {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 1.25rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
@@ -362,6 +363,51 @@ h6 {
 
 .metric-row strong {
   color: var(--text-heading);
+}
+
+.hero-steps {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.hero-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  padding: 0.7rem 0;
+}
+
+.hero-step + .hero-step {
+  border-top: 1px solid var(--surface-border);
+}
+
+.hero-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  height: 2.35rem;
+  padding: 0 0.55rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.28);
+  border-radius: 0.45rem;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.hero-step h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.1;
+}
+
+.hero-step p {
+  margin: 0.3rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .metric-bar {
@@ -446,7 +492,7 @@ h6 {
 }
 
 body.theme-light .hero-qr-graphic {
-  opacity: 0.5;
+  opacity: 0.62;
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow:
     0 22px 44px rgba(94, 117, 16, 0.12),
@@ -596,7 +642,7 @@ body.theme-light .hero-qr-graphic {
     right: 1rem;
     top: 1.5rem;
     width: 10rem;
-    opacity: 0.28;
+    opacity: 0.38;
   }
 
   .feature-grid {
@@ -618,7 +664,7 @@ body.theme-light .hero-qr-graphic {
     right: 0.25rem;
     top: 0.75rem;
     width: 8rem;
-    opacity: 0.2;
+    opacity: 0.28;
   }
 
   .form-shell,

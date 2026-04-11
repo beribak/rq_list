@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!, except: [ :public ]
-  before_action :set_menu, only: [ :show, :edit, :update, :destroy, :qr_code ]
+  before_action :set_menu, only: [ :show, :edit, :update, :destroy, :qr_code, :update_template ]
   before_action :set_public_menu, only: [ :public ]
 
   def index
@@ -84,6 +84,14 @@ class MenusController < ApplicationController
         )
         send_data png.to_s, type: "image/png", disposition: "inline"
       end
+    end
+  end
+
+  def update_template
+    if @menu.update(template_key: params[:template_key])
+      redirect_to @menu, notice: "Template updated."
+    else
+      redirect_to @menu, alert: "Template could not be updated."
     end
   end
 

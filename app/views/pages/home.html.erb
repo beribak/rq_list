@@ -28,23 +28,33 @@
   <aside class="hero-side panel-card capability-card">
     <div class="panel-card-header">
       <span class="status-dot"></span>
-      <span><%= t("home.snapshot_title") %></span>
+      <span><%= t("home.steps_title") %></span>
     </div>
-    <div class="metric-row">
-      <span><%= t("home.metrics.menu_design") %></span>
-      <strong>96%</strong>
+    <div class="hero-steps">
+      <article class="hero-step">
+        <span class="hero-step-number">01</span>
+        <div>
+          <h3><%= t("home.steps.create_account.title") %></h3>
+          <p><%= t("home.steps.create_account.description") %></p>
+        </div>
+      </article>
+
+      <article class="hero-step">
+        <span class="hero-step-number">02</span>
+        <div>
+          <h3><%= t("home.steps.build_menu.title") %></h3>
+          <p><%= t("home.steps.build_menu.description") %></p>
+        </div>
+      </article>
+
+      <article class="hero-step">
+        <span class="hero-step-number">03</span>
+        <div>
+          <h3><%= t("home.steps.publish.title") %></h3>
+          <p><%= t("home.steps.publish.description") %></p>
+        </div>
+      </article>
     </div>
-    <div class="metric-bar"><span style="width: 96%"></span></div>
-    <div class="metric-row">
-      <span><%= t("home.metrics.qr_delivery") %></span>
-      <strong>92%</strong>
-    </div>
-    <div class="metric-bar"><span style="width: 92%"></span></div>
-    <div class="metric-row">
-      <span><%= t("home.metrics.guest_experience") %></span>
-      <strong>94%</strong>
-    </div>
-    <div class="metric-bar"><span style="width: 94%"></span></div>
   </aside>
 </section>
 

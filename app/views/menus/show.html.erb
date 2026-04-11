@@ -9,6 +9,10 @@
         <i class="bi bi-qr-code"></i>
         <span><%= t('menus.show.qr_code') %></span>
       <% end %>
+      <%= link_to public_menu_path(@menu), class: "btn-icon btn-icon-secondary", target: "_blank", rel: "noopener" do %>
+        <i class="bi bi-eye"></i>
+        <span><%= t('menus.show.preview') %></span>
+      <% end %>
       <%= link_to edit_menu_path(@menu), class: "icon-action", aria: { label: "Edit menu" } do %>
         <i class="bi bi-pencil-fill"></i>
       <% end %>
@@ -17,6 +21,28 @@
       <% end %>
     </div>
   </div>
+
+  <section class="template-picker-panel panel-card">
+    <div class="panel-card-header">
+      <span class="status-dot"></span>
+      <span><%= t("menus.templates.title") %></span>
+    </div>
+    <div class="template-picker-grid">
+      <% Menu::TEMPLATES.each_key do |template_key| %>
+        <% selected = @menu.template_key == template_key %>
+        <%= button_to update_template_menu_path(@menu), method: :patch, params: { template_key: template_key }, class: "template-tile #{'is-active' if selected}" do %>
+          <span class="template-swatch template-swatch-<%= template_key %>"></span>
+          <span class="template-copy">
+            <strong><%= t("menus.templates.options.#{template_key}.name") %></strong>
+            <small><%= t("menus.templates.options.#{template_key}.description") %></small>
+          </span>
+          <% if selected %>
+            <span class="template-check"><i class="bi bi-check2"></i></span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
 
   <div class="mb-3">
     <%= link_to new_menu_section_path(@menu), class: "btn-icon btn-icon-add" do %>
