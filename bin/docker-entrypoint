@@ -6,8 +6,9 @@ if [ -z "${LD_PRELOAD+x}" ]; then
     export LD_PRELOAD
 fi
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+# If starting the web server then create or migrate the database first.
+if { [ "$1" == "./bin/rails" ] && [ "$2" == "server" ]; } || \
+   { [ "$1" == "bundle" ] && [ "$2" == "exec" ] && [ "$3" == "puma" ]; }; then
   ./bin/rails db:prepare
 fi
 
